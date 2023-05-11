@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<div class="d-flex flex-column align-items-center justify-content-center">
+	<h1>Site Authentification</h1>
+	<p>Bienvenu sur le site réalisé avec le cours Open Classroom <strong>"Aller plus loin avec le Framework Django"</strong></p>
+
+	{% if user.is_authenticated %}
+	<div class="container">
+		<p>Vous êtes connecté en tant que {{ request.user }}.</p>
+		<a class="btn btn-danger" href="{% url 'logout' %}">Déconnexion</a>
+	</div>
+	{% endif %}
+		
+</div>
+{% endblock %}

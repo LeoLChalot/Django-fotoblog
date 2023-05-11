@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<div class="d-flex flex-column align-items-center justify-content-center">
+	<p style="color:red">{{ message }}</p>
+	<form action="" method="post" class="d-flex flex-column align-items-center">
+		{% csrf_token %}
+		<div class="form-group">
+			{% for field in form %}
+			<p>{{ field.label }}:</p>
+			<div class="mb-3">{{ field }}</div>
+			{% endfor %}
+		</div>
+		<input type="submit" value="envoyer" class="btn btn-primary m-4" />
+	</form>
+	<small>Pas encore inscrit.e ? <a href="{% url 'signup' %}">S'inscrire</a></small>
+</div>
+{% endblock %}
